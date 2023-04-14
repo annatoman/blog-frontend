@@ -6,3 +6,7 @@ html {
   scroll-behavior: smooth;
   background-color: #ddceda39;
 }
+
+form {
+  margin-bottom: .5em;
+}

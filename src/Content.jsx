@@ -3,6 +3,7 @@ import axios from "axios";
 import { PostsNew } from './PostsNew';
 import { PostsIndex } from './PostsIndex';
 import { Modal } from './Modal';
+import { PostsShow } from './PostsShow';
 
 export function Content() {
   const [posts, setPosts] = useState([]);
@@ -31,10 +32,8 @@ export function Content() {
     <div>
       <PostsNew />
       <PostsIndex posts={posts} onShowPost={handleShowPost}/>
-      <Modal show= {isPostsShowVisible} onClose={handleClose}>
-        <h2>Title: {currentPost.title}</h2>
-        <p>Description: {currentPost.body}</p>
-        <img src={currentPost.image}></img>
+      <Modal show={isPostsShowVisible} onClose={handleClose}>
+        <PostsShow post={currentPost}/>
       </Modal>
     </div>
   );
