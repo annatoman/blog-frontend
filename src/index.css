@@ -1,3 +1,12 @@
+#root {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-image: url("https://img.freepik.com/free-vector/subtle-rombus-white-gray-pattern-background_1017-25098.jpg?w=2000")
+}
+
+p {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
 #posts-index img {
   width: 300px;
 }
