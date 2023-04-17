@@ -6,6 +6,7 @@ import { Modal } from './Modal';
 import { PostsShow } from './PostsShow';
 import { Signup } from './Signup';
 import { Login } from './Login';
+import { LogoutLink } from './LogoutLink';
 
 export function Content() {
   const [posts, setPosts] = useState([]);
@@ -32,8 +33,9 @@ export function Content() {
 
   return (
     <div className="container">
-      <Login />
       <Signup />
+      <Login />
+      <LogoutLink />
       <PostsNew />
       <PostsIndex posts={posts} onShowPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleClose}>
