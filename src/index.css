@@ -1,6 +1,11 @@
 #root {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background-image: url("https://img.freepik.com/free-vector/subtle-rombus-white-gray-pattern-background_1017-25098.jpg?w=2000")
+  background-image: url("https://api.time.com/wp-content/uploads/2014/06/seinfeld-elaine-benes-fashion-05.jpg")
+}
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 p {
