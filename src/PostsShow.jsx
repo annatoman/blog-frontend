@@ -7,6 +7,10 @@ export function PostsShow(props) {
         event.target.reset();
      };
 
+    const handleClick = () => {
+        props.onDestroyPost(props.post);
+    }
+
     return (
         <div id="posts-show">
         <h1>Update Posts Info!</h1>

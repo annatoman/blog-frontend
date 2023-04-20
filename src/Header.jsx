@@ -15,9 +15,6 @@ export function Header() {
                   <Link to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/posts-index">All Posts</Link>
-                </li>
-                <li className="nav-item">
                   <Link to="/posts-new">New Post</Link>
                 </li>
                 <li className="nav-item">
@@ -31,13 +28,12 @@ export function Header() {
             </div>
           </div>
         </nav>
-        <a href="#">Home</a> | 
-        <Link to="/about">About</Link> | 
-        <Link to="/posts-index">All Posts</Link> | 
+        
+        <Link to="/">All Posts</Link> |
         <Link to="/posts/new">New Post</Link> |
+        <Link to="/about">About</Link> | 
         <Link to="/signup">Signup</Link> |
-        <Link to="/login">Login</Link> |
-        <Link to="/logout">Logout</Link>
+        <Link to="/login">Login</Link>
       </header>
   );
 };
