@@ -16,6 +16,7 @@ export function PostsShow(props) {
         <div>image: <input defaultValue={props.post.image} name="image" type="text" /></div>
         <button type="submit">Update this post</button>
         </form>
+        <button onClick={handleClick}>Delete Post</button>
         </div>
         );
 }

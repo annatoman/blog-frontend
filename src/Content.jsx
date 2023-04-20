@@ -7,6 +7,8 @@ import { PostsShow } from './PostsShow';
 import { Signup } from './Signup';
 import { Login } from './Login';
 import { LogoutLink } from './LogoutLink';
+import { Routes, Route } from "react-router-dom";
+import { About } from "./About";
 
 export function Content() {
   const [posts, setPosts] = useState([]);
@@ -48,16 +50,28 @@ export function Content() {
       );
       handleClose();
     })
-  }
+  };
+
+  const handleDestroyPost = (post) => {
+    axios.delete("http://localhost:3000/posts/" + post.id + ".json").then((response) => {
+      setPosts(posts.filter((r) => r.id !== post.id));
+      handleClose();
+    });
+  };
 
   useEffect(handleIndexPosts, []);
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
-      <LogoutLink />
-      <PostsNew onCreatePost={handleCreatePost}/>
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logoutlink" element={<LogoutLink />} />
+        <Route path="/posts/new" element={<PostsNew onCreatePost={handleCreatePost} />} />
+      </Routes>
+
+      {/* <PostsNew onCreatePost={handleCreatePost}/> */}
       <PostsIndex posts={posts} onShowPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleClose}>
       <PostsShow post={currentPost} onUpdatePost={handleUpdatePost}/>
