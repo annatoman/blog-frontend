@@ -15,7 +15,7 @@ export function Header() {
                   <Link to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/posts-new">New Post</Link>
+                  <Link to="/posts/new">New Post</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/about">About</Link>
