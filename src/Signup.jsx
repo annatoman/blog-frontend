@@ -4,6 +4,7 @@ import { useState } from "react";
 export function Signup() {
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,6 +18,7 @@ export function Signup() {
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
       .catch((error) => {
+        setStatus(error.response.status);
         console.log(error.response.data.errors);
         setErrors(error.response.data.errors);
       });
@@ -25,6 +27,7 @@ export function Signup() {
   return (
     <div id="signup">
       <h1>Signup</h1>
+      {status ? <img src={`https://httpstatusdogs.com/img/${status}.jpg`} /> : null}
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
@@ -33,7 +36,8 @@ export function Signup() {
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" value={name} onChange={(event) => setName(event.target.value)} type="text" />
-          <small>{20 - name.length} characters remaining.</small>
+          <div><small>{20 - name.length} characters remaining.</small>
+          </div>
         </div>
         <div>
           Email: <input name="email" type="email" />

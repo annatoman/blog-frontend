@@ -1,8 +1,25 @@
+import { Modal } from "./Modal";
+import { Signup } from "./Signup";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function Header() {
+
+  const [isSignupVisible, setIsSignupVisible] = useState (false);
+
+  const handleSignupShow = () => {
+    setIsSignupVisible(true);
+  };
+
+  const handleSignupClose = () => {
+    setIsSignupVisible(false);
+  };
+
   return (
       <header>
+        <Modal show={isSignupVisible} onClose={handleSignupClose}>
+          <Signup />
+        </Modal>
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">Seinfeld Classic</a>
@@ -32,8 +49,20 @@ export function Header() {
         <Link to="/">All Posts</Link> |
         <Link to="/posts/new">New Post</Link> |
         <Link to="/about">About</Link> | 
-        <Link to="/signup">Signup</Link> |
-        <Link to="/login">Login</Link>
+        {localStorage.jwt === undefined ? (
+          <>
+          <li>
+            <a href="/signup"> Signup </a>
+          </li>
+          <li>
+            <a href="/login">Login</a>
+          </li>
+          </>
+        ) : (
+          <li>
+            <a href="#logout">Logout</a>
+          </li>
+        )}
       </header>
   );
 };
