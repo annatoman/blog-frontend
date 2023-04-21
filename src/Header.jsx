@@ -46,9 +46,9 @@ export function Header() {
           </div>
         </nav>
         
-        <Link to="/">All Posts</Link> |
-        <Link to="/posts/new">New Post</Link> |
-        <Link to="/about">About</Link> | 
+        <Link to="/">All Posts</Link>  | 
+        <Link to="/posts/new">New Post</Link>  | 
+        <Link to="/about">About</Link>
         {localStorage.jwt === undefined ? (
           <>
           <li>
